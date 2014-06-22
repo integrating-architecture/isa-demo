@@ -1,4 +1,4 @@
 isa-demo
 ========
 
-A test and demo repository
+Just a test and demo repository. No real project!
