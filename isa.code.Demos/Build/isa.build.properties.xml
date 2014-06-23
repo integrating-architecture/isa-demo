@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ISA Global Build Properties.
+-->
+<project name="isa.build.properties" basedir=".">
+	
+	<!-- switches to be used inside a module build script
+	     or as an ant command line arg like e.g. -DdoUnitTest=true
+	     
+	<property name="doUnitTest" value="true" />
+	<property name="doPackageTest" value="true" />
+	<property name="doMfAddOns" value="true" />
+	<property name="doBackup" value="true" />
+	<property name="doJavaDoc" value="true" />
+	-->
+
+	<!-- Root Location -->
+	<property name="root" location="../" />
+	<property name="sysName" value="isasystem5" />
+	<property name="appSrvDeployDir" location="/isa.projects/as/jboss-as-7.1.1.Final/standalone/deployments" />
+
+	<property name="sysRoot" location="${root}/${sysName}" />
+	<property name="licenseFile" location="${sysRoot}/License.txt" />
+
+	<!-- misc -->
+	<property name="vendor" value="Integrating Architecture"/>
+	<property name="systemLineVersion" value="5.0"/>
+	<property name="plugInLibraries" value="" />
+	<property name="plugInImports" value="" />
+
+	<!-- VM Options -->
+	<property name="vmOptions" value="isa.test=file:${sysRoot}" />
+
+	<!-- locations -->
+	<property name="binDir" location="target/classes" />
+    <property name="srcDir" location="src/main/java" />
+	<property name="testSrcDir" location="src/test/java" />
+	<property name="resDir" location="src/main/resources" />
+    <property name="webDir" location="src/main/webapp" />
+	<property name="webXml" location="${webDir}/WEB-INF/web.xml" />
+    <property name="jarDir" location="target/" />
+    <property name="docDir" location="target/javadoc" />
+	<property name="pluginDirName" value="plugins" />
+		
+	<property name="pluginDir" location="${sysRoot}/${pluginDirName}" />
+	<property name="extLibs" location="${sysRoot}/${pluginDirName}/extlibs" />
+	<property name="etcDir" location="${sysRoot}/etc" />
+	<property name="deployDir" location="${pluginDir}" />
+	
+	<!-- unit test -->
+	<property name="testSystemLib" value="${extLibs}/junit-4.11.0.jar" />
+	
+	<!-- files -->
+	<property name="configFile" location="${resDir}/META-INF/${target}.xml"/>
+	<property name="manifestFile" location="${resDir}/META-INF/MANIFEST.MF"/>
+	
+	<tstamp>
+	  <format property="year"
+	          pattern="yyyy"/>
+	</tstamp>
+	<tstamp>
+	  <format property="build.date"
+        pattern="dd.MM.yyyy HH:mm:ss zZZZZ" locale="de,DE"/>
+	</tstamp>
+
+	<!-- compiler flags -->
+	<property name="debuglevel" value="source,lines,vars"/>
+	<property name="binVersion" value="1.6"/>
+    <property name="srcVersion" value="1.6"/>
+    <property name="warnings" value="nowarn"/>
+	
+	<!-- isa ant extension task -->
+	<taskdef name="isatask" classname="isa.AntExtension">
+		<classpath> 
+			<fileset dir="${pluginDir}"> 
+				<include name="isa.CoreBootstrap-1.0.0.DEV-SNAPSHOT.jar" /> 
+				<include name="isa.Core-1.0.0.DEV-SNAPSHOT.jar" /> 
+				<include name="isa.AntExtension-1.0.0.DEV-SNAPSHOT.jar" /> 
+			</fileset> 
+		</classpath>
+	</taskdef>
+
+</project>
