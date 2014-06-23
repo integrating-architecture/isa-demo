@@ -18,7 +18,7 @@
 	",
 	"description": "header",
 	"type": "jsrule",
-	"version": "1.0.0"
+	"version": "1.0.0",
 	"validFrom": "01.01.2014 00:00:00.000",
 	"validTo": "01.01.2015 00:00:00.000"
 },
