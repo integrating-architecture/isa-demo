@@ -12,11 +12,11 @@ ISA Global Build Targets.
 	<!--
 	Target: Run - this is the main target
 	-->
-    <target name="Run" 
-    	depends="DefineSystemContext, ReadManifest, DefineTargets, Backup, Cleanup, CreateClassPath, CreateManifest, AddManifestAddOns, Compile, Package, Deploy, CompileTest, PackageTest, RunTest, CreateJavaDoc">
-    	<echo message="Build: ${basedir}" /> 
-       	<echo message="End ----------------------------------------------------------------------------" /> 
-    </target> 
+	<target name="Run" 
+		depends="DefineSystemContext, ReadManifest, DefineTargets, Backup, Cleanup, CreateClassPath, CreateManifest, AddManifestAddOns, Compile, Package, Deploy, CompileTest, PackageTest, RunTest, CreateJavaDoc">
+		<echo message="Build: ${basedir}" /> 
+		<echo message="End ----------------------------------------------------------------------------" /> 
+	</target> 
 
 	<!--
 	Target: DefineSystemContext 
@@ -43,10 +43,10 @@ ISA Global Build Targets.
 	<!--
 	Target: Define targets 
 	-->
-    <target name="DefineTargets">
-    	<property name="jarFile" location="${jarDir}/${target}${versionTag}.jar"/>
-    	<property name="testJarFile" location="${jarDir}/test.${target}${versionTag}.jar"/>
-    </target> 
+	<target name="DefineTargets">
+		<property name="jarFile" location="${jarDir}/${target}${versionTag}.jar"/>
+		<property name="testJarFile" location="${jarDir}/test.${target}${versionTag}.jar"/>
+	</target> 
 
 	<!--	
 	Target: Backup 
