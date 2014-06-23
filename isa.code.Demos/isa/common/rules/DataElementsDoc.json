@@ -1,0 +1,267 @@
+[
+{
+	"description": "header",
+	"type": "data",
+	"version": "1.0.0",
+	"info": "
+		This file is the data element definition file for a 'package' named 'isa.common.rules'.
+		It defines metadata definitions (rules) for single DataElements.
+		This metadata is stored in a document database and is available at runtime.
+
+		Background:
+		ISA provides a concept called Rules which combines exchangeable business logic and metadata.
+		ISA Rules are similar to ISA Modules concrete, uniquely identifiable objects
+		that have a package based name and a version which together make up the rule's unique identifier.
+
+		A DataElement Rule is a collection of informations (metadata) that expresses
+		all the ruling statements one can make about that particular unique piece of data e.g.:
+		 - 'isa.common.rules.UserId' must have a minimal length of 3 characters
+		 - 'isa.common.rules.UserId' has the format '[a-zA-Z0-9]+'
+		 - 'isa.common.rules.UserId' uses the german label 'Benutzer ID'
+		 - ... etc.
+		Please Note - that this Rule definitions are 'context free'. They just define a set of informations
+		under a unique name - they do NOT say or define anything about a particular usage.
+		This also applies to the name of a DataElement which does NOT reflect e.g.
+		a real class, a database field or anything like this - it is just a unique name.
+
+		The metadata rules are expressed in simple JSON documents.The ISA RuleService takes
+		this documents and stores them as JSON documents in a schemeless document database.
+		The ISA RuleService also retrieves this documents on request at runtime (Data Dictionary).
+
+		The advantage of this is that the ISA Rules are able to provide any kind
+		of information that can be expressed in valid JSON - on any platform that understands JSON e.g. the Web.
+		It also allows a system to freely evolve the use and the content of Rules metadata
+		without the need to change database structures or migrate existing data holdings.
+
+
+		______________________
+		Some more words to the subject of 'context free' metadata.
+		Unlike many other metamodels (e.g. ER or Class models) ISA Rules do NOT imply a particular purpose,
+		other than to provide individual useful and unique metadata (DRY), that is able to evolve
+		over time without harming existing system structures or functionalities.
+
+		So the purpose of ISA Rules metadata is NOT to define or model a system with abstract structures.
+		On the contrary, its purpose IS to provide concrete runtime informations that enables a system
+		to consistently	rule itself, driven from a business point of view.
+
+		In order to illustrate this concept a little bit closer take a look at the 'CommentMessage' rule object below.
+		This rule defines how a business entity that represents a comment should be structured and
+		how it should be ruled with regard to its actual data content or representation.
+		The rule does NOT define e.g. a Java class or a database table - instead it defines all
+		the concrete informations that might be important to deal with the business idea of a 'CommentMessage'.
+
+		In this way all this informations are uniquely in one place outside of a compiled program
+		but at the same time consistently available for all parts of a system at runtime.
+		That enables the system to use this informations to dynamically control	its behavior driven by this rules.    
+		
+		In this way specification becomes an active and ruling part of the system itself - instead of
+		being just inactive and separated documentation or inflexible code generation input.
+
+		Further more this metadata specification is adaptable to any new purpose that might come up.
+		E.g. if such comments suddenly have to be transfered to different other systems the rule could specify
+		how to do that or how to transform the data to other data structures.
+		Just by extending ...
+			...
+				'version': '1.1.0'
+				...
+					'targetsystem': {
+						'name': 'SAP',
+						'interface': 'WebService',
+						'mapping': {
+							...
+							...
+						}
+					}
+			...
+		the existing informations. One can imagine that there is no limit for possible use cases.
+
+		To distinguish Rules from other metadata some key points in a summary
+		 - a data element Rule is a unique and versioned concrete object
+		 - it is stored as a document in a schemeless document database
+		 - it is runtime data provided by central services
+		 - it is tool, platform an technology neutral
+		 - it can be used for any purpose
+		 - it can be dynamically extended
+		 - it is simple and scalable
+	"
+},
+
+{
+	"name": "UserId",
+	"description": "The UserId is the standard user identifier to log on to an ISA System",
+	
+	"datatype": "string",
+	"constraints": {
+		"min": 3, 
+		"max": 8,
+		"format": "[a-zA-Z0-9]+"
+	},	
+	"label": {
+		"de": "Benutzer ID",
+		"en": "User ID"
+	},
+	"hint": {
+		"de": "Bitte geben Sie Ihre Benutzer ID ein",
+		"en": "Please insert your User ID"
+	}
+},
+
+{
+	"name": "LoginPassword",
+	"description": "The LoginPassword is the standard password data to log on to an ISA System",
+	
+	"datatype": "string",
+	"constraints": {
+		"min": 8, 
+		"max": 16,
+		"format": "[a-zA-Z0-9_#-.!?]+"
+	},
+	
+	"label": {
+		"de": "Passwort",
+		"en": "Password"
+	},
+	"hint": {
+		"de": "Bitte geben Sie Ihre Passwort ein",
+		"en": "Please insert your Password"
+	}
+},
+
+{
+	"name": "CountryCode-ISO3166-alpha-2",
+	"description": "The CountryCode is the international standard code for a country",
+	
+	"datatype": "string",
+	"constraints": {
+		"min": 2, 
+		"max": 2,
+		"format": "[A-Z]+"
+	},
+	
+	"label": {
+		"de": "Länderkennung",
+		"en": "Country code"
+	},
+	"values": {
+		"de": {
+			"DE": "Deutschland",
+			"AT": "Österreich",
+			"GB": "England"
+		},
+		"en": {
+			"DE": "Germany",
+			"AT": "Austria",
+			"GB": "England"
+		}
+	}
+},
+
+{
+	"name": "CommentMessage",
+	"description": "The CommentMessage is the standard message to send comments",
+	"datatype": "object",
+	
+	"member": {	
+		"name": {
+			"description": "Name of the commenting person",
+		
+			"datatype": "string",
+			"constraints": {
+				"min": -1, 
+				"max": 32,
+				"format": "[a-zA-Z]+"
+			},
+			
+			"label": {
+				"de": "Name",
+				"en": "Name"
+			},
+			"hint": {
+				"de": "Bitte geben Sie Ihren Namen ein",
+				"en": "Please insert your Name"
+			},
+			"defaultValue": {
+				"de": "Unbekannt",
+				"en": "Anonymous"
+			}
+		},
+		
+		"mail": {
+			"description": "Mail address of the commenting person",
+		
+			"datatype": "isa.common.rules.MailAddress[version=1.0.*]",
+			
+			"label": {
+				"de": "Mail",
+				"en": "Mail"
+			},
+			"hint": {
+				"de": "Bitte geben Sie Ihre Mailadresse ein",
+				"en": "Please insert your Mailaddress"
+			}
+		},
+		
+		"subject": {
+			"description": "The subject this comment is about",
+		
+			"datatype": "string",
+			"constraints": {
+				"min": -1, 
+				"max": 128,
+				"format": ""
+			},
+			
+			"label": {
+				"de": "Betreff",
+				"en": "Subject"
+			},
+			"hint": {
+				"de": "Bitte geben Sie einen Betreff ein",
+				"en": "Please insert a Subject"
+			}
+		},
+		
+		"comment": {
+			"description": "The comment text",
+		
+			"datatype": "string",
+			"constraints": {
+				"min": -1, 
+				"max": 1024,
+				"format": ""
+			},
+			
+			"label": {
+				"de": "Kommentar",
+				"en": "Comment"
+			},
+			"hint": {
+				"de": "Bitte geben Sie Ihren Kommentar ein",
+				"en": "Please insert your Comment"
+			}
+		}
+	}
+},
+
+{
+	"name": "MailAddress",
+	"description": "A standard mail address",
+
+	"datatype": "string",
+	"constraints": {
+		"min": 5, 
+		"max": 128,
+		"format": ""
+	},
+	
+	"label": {
+		"de": "Mail",
+		"en": "Mail"
+	},
+	"hint": {
+		"de": "Bitte geben Sie eine Mailadresse ein",
+		"en": "Please insert a Mailaddress"
+	}
+}
+
+]
