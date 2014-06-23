@@ -89,13 +89,13 @@
 {
 	"name": "UserId",
 	"description": "The UserId is the standard user identifier to log on to an ISA System",
-	
+
 	"datatype": "string",
 	"constraints": {
-		"min": 3, 
+		"min": 3,
 		"max": 8,
 		"format": "[a-zA-Z0-9]+"
-	},	
+	},
 	"label": {
 		"de": "Benutzer ID",
 		"en": "User ID"
@@ -103,27 +103,6 @@
 	"hint": {
 		"de": "Bitte geben Sie Ihre Benutzer ID ein",
 		"en": "Please insert your User ID"
-	}
-},
-
-{
-	"name": "LoginPassword",
-	"description": "The LoginPassword is the standard password data to log on to an ISA System",
-	
-	"datatype": "string",
-	"constraints": {
-		"min": 8, 
-		"max": 16,
-		"format": "[a-zA-Z0-9_#-.!?]+"
-	},
-	
-	"label": {
-		"de": "Passwort",
-		"en": "Password"
-	},
-	"hint": {
-		"de": "Bitte geben Sie Ihre Passwort ein",
-		"en": "Please insert your Password"
 	}
 },
 
@@ -137,7 +116,7 @@
 		"max": 2,
 		"format": "[A-Z]+"
 	},
-	
+
 	"label": {
 		"de": "Länderkennung",
 		"en": "Country code"
@@ -160,18 +139,18 @@
 	"name": "CommentMessage",
 	"description": "The CommentMessage is the standard message to send comments",
 	"datatype": "object",
-	
-	"member": {	
+
+	"member": {
 		"name": {
 			"description": "Name of the commenting person",
-		
+
 			"datatype": "string",
 			"constraints": {
-				"min": -1, 
+				"min": -1,
 				"max": 32,
 				"format": "[a-zA-Z]+"
 			},
-			
+
 			"label": {
 				"de": "Name",
 				"en": "Name"
@@ -179,18 +158,14 @@
 			"hint": {
 				"de": "Bitte geben Sie Ihren Namen ein",
 				"en": "Please insert your Name"
-			},
-			"defaultValue": {
-				"de": "Unbekannt",
-				"en": "Anonymous"
 			}
 		},
-		
+
 		"mail": {
 			"description": "Mail address of the commenting person",
-		
+
 			"datatype": "isa.common.rules.MailAddress[version=1.0.*]",
-			
+
 			"label": {
 				"de": "Mail",
 				"en": "Mail"
@@ -200,17 +175,17 @@
 				"en": "Please insert your Mailaddress"
 			}
 		},
-		
+
 		"subject": {
 			"description": "The subject this comment is about",
-		
+
 			"datatype": "string",
 			"constraints": {
-				"min": -1, 
+				"min": -1,
 				"max": 128,
 				"format": ""
 			},
-			
+
 			"label": {
 				"de": "Betreff",
 				"en": "Subject"
@@ -220,17 +195,17 @@
 				"en": "Please insert a Subject"
 			}
 		},
-		
+
 		"comment": {
 			"description": "The comment text",
-		
+
 			"datatype": "string",
 			"constraints": {
-				"min": -1, 
+				"min": -1,
 				"max": 1024,
 				"format": ""
 			},
-			
+
 			"label": {
 				"de": "Kommentar",
 				"en": "Comment"
@@ -263,5 +238,4 @@
 		"en": "Please insert a Mailaddress"
 	}
 }
-
 ]

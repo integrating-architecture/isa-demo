@@ -1,0 +1,92 @@
+[
+{
+	"info": "
+		This file is a rule definition file that defines rules for a package named 'isa.common.rules'.
+		Rules are context free functions that provide a unified interface named 'applayTo'
+		that takes a value(s) applies the rule logic and returns a new value(s).
+		Rules can be implemented either in Java or in JavaScript.
+		The json definitions in this file are the rules metadata which is stored like rule data elements
+		in a schemeless document database and provided by central services at runtime.
+		
+		Rules support:
+		 - a version
+		 - a validity period
+		 - import and use of other rules
+		 - multi language return messages
+		 
+		For more details about the ISA Rule Concept please take also a look at the DataElementsDoc.json.
+	",
+	"description": "header",
+	"type": "jsrule",
+	"version": "1.0.0"
+	"validFrom": "01.01.2014 00:00:00.000",
+	"validTo": "01.01.2015 00:00:00.000"
+},
+{
+	"description": "
+		The SizeRule is a parameterized rule that verifies 
+		whether a given value has a length between a minimum and a maximum length.
+	",
+	"validTo": "01.01.2020 00:00:00.000",
+	"successor": "isa.common.rules.SizeRule[version=2.0.0]",
+	"imports": [
+	           "isa.common.rules.Tool[version=1.0.0]"
+	],
+	"source": "
+		function SizeRule(pMin, pMax) {
+			//msg-start
+			var messages = ['too small', 'too large'];
+			//msg-end
+			
+			var min = pMin;
+			var max = pMax;
+			
+			this.applyTo = function (pValue) {
+				var lTool = new isa_common_rules_Tool();
+				lTool.log('applyTo SizeRule to ['pValue+']');
+				
+				var lResult = new Object();
+				if(min>-1 && pValue.length < min) {
+					lResult['message'] = messages[0].replace('{0}', min);
+				}
+				if(max>-1 && pValue.length > max) {
+					lResult['message'] = messages[1].replace('{0}', max);
+				}
+				return lResult;
+			};
+		};	
+	"
+},
+
+{
+	"description": "
+		The MailAddressRule is a rule that verifies 
+		whether a given mail address is vaild or not.
+	",
+	"source": "
+		function MailAddressRule(){
+			//msg-start
+			var messages = ['msg0', 'msg1', 'msg2'];
+			//msg-end
+			
+			this.applyTo = function(pValue){
+				var lResult = new Object();
+				if(pValue.length>0){
+					var lPos = pValue.indexOf('@');
+					var lPosDot = pValue.lastIndexOf('.');
+					if(lPos<0){
+						lResult['message'] = messages[0].replace('{0}', '@');
+					}else if(!(lPosDot>(lPos+1) && (lPosDot<(pValue.length-1)))){
+						if(lPosDot==(lPos+1)){
+							lResult['message'] = messages[2];
+						}else{
+							lResult['message'] = messages[1];
+						}
+					}		
+				}
+				return lResult;
+			};
+		};
+	"
+}
+]
