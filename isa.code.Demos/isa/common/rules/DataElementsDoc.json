@@ -4,7 +4,7 @@
 	"type": "data",
 	"version": "1.0.0",
 	"info": "
-		This  file is the data element definition file for a 'package' named 'isa.common.rules'.
+		This file is the data element definition file for a 'package' named 'isa.common.rules'.
 		It defines metadata definitions (rules) for single DataElements.
 		This metadata is stored in a document database and is available at runtime.
 
