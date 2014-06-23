@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.4
+Created-By: 1.6.0_25-b06 (Sun Microsystems Inc.)
+Build-By: Andreas
+Build-Date: 21.06.2014 13:08:03 MESZ+0200
+Specification-Title: isa.TestService
+PlugIn-Title: ISA Test Service
+PlugIn-Vendor: Integrating Architecture
+PlugIn-Version: 1.0.0.DEV-SNAPSHOT
+Systemline-Version: 5.0
+PlugIn-Type: Service
+PlugIn-Name: isa.TestService
+PlugIn-Libraries: 
+PlugIn-Imports: [version=(1.0.0 > 2.0.0]]
+PlugIn-Exports: 
+PlugIn-Properties: 
+

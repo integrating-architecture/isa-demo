@@ -3,5 +3,5 @@ PlugIn-Version: 1.0.0.DEV-SNAPSHOT
 PlugIn-Type: Service
 PlugIn-Name: isa.TestService
 PlugIn-Libraries: 
-PlugIn-Imports: isa.Core[version=(1.0.0 > 2.0.0]]
+PlugIn-Imports: isa.CoreBootstrap[version=(1.0.0 > 2.0.0]]
 PlugIn-Exports: 
