@@ -1,0 +1,18 @@
+{
+	"name": "Messages_de",
+	"type": "resources",
+	"version": "1.0.0",
+	
+	"resources": { 
+		"SizeRule": [
+			"Die Länge muss mindestens [{0}] Zeichen betragen.",
+			"Die Länge darf maximal [{0}] Zeichen betragen."
+		],
+		
+		"MailAddressRule": [
+			"Die Mail Adresse beinhaltet kein [{0}] Zeichen.",
+			"Die Mail Adresse besitzt keine Domainendung wie z.B. [.com].",
+			"Die Mail Adresse besitzt keinen Domainnamen wie z.B. [company.com]."
+		]
+	}
+}
