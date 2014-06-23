@@ -51,18 +51,18 @@ ISA Global Build Targets.
 	<!--	
 	Target: Backup 
 	-->
-    <target name="Backup" if="doBackup">
-    	<copy overwrite="True" file="${jarFile}" toFile="${jarFile}.bak"/>
-    </target>
-
+	<target name="Backup" if="doBackup">
+		<copy overwrite="True" file="${jarFile}" toFile="${jarFile}.bak"/>
+	</target>
+	
 	<!--
 	Target: Cleanup 
 	-->
-    <target name="Cleanup">  	
+	<target name="Cleanup">  	
 		<delete includeemptydirs="true">
 			<fileset dir="${binDir}" includes="**/*.class"/>
 		</delete>
-    </target>
+	</target>
 
 	<!--
 	Target: CreateClassPath 
@@ -70,90 +70,90 @@ ISA Global Build Targets.
 	by adding the imports from the source manifest.
 	-->
 	<target name="CreateClassPath">
-	    <path id="buildClassPath">
-	        <pathelement location="${binDir}"/>
-	    	<pathelement location="${testSystemLib}"/>	    	
-	    </path>
-        <isatask call="setBuildPathElementsFromManifestInternal">
-        </isatask>
+		<path id="buildClassPath">
+			<pathelement location="${binDir}"/>
+			<pathelement location="${testSystemLib}"/>	    	
+		</path>
+		<isatask call="setBuildPathElementsFromManifestInternal">
+		</isatask>
 	</target>
 
 	<!--
 	Target: CreateManifest 
 	-->
-    <target name="CreateManifest">    	
-    	<manifest file="${manifestFile}">
-    		<attribute name="Build-By" value="${user.name}"/> 
-       		<attribute name="Build-Date" value="${build.date}"/> 
-    		<attribute name="Specification-Title" value="${target}"/> 
- 			<attribute name="PlugIn-Title" value="${title}"/> 
+	<target name="CreateManifest">    	
+		<manifest file="${manifestFile}">
+			<attribute name="Build-By" value="${user.name}"/> 
+			<attribute name="Build-Date" value="${build.date}"/> 
+			<attribute name="Specification-Title" value="${target}"/> 
+			<attribute name="PlugIn-Title" value="${title}"/> 
 			<attribute name="PlugIn-Vendor" value="${vendor}"/> 
 			<attribute name="PlugIn-Version" value="${buildVersion}"/> 
-    		<attribute name="Systemline-Version" value="${systemLineVersion}"/> 
-    		<attribute name="PlugIn-Type" value="${plugInType}"/>
-    		<attribute name="PlugIn-Name" value="${target}"/>
-    		<attribute name="PlugIn-Libraries" value="${plugInLibraries}"/>
-    		<attribute name="PlugIn-Imports" value="${plugInImports}"/>
-    		<attribute name="PlugIn-Exports" value="${plugInExports}"/>
-    		<attribute name="PlugIn-Properties" value="${plugInProperties}"/>
+			<attribute name="Systemline-Version" value="${systemLineVersion}"/> 
+			<attribute name="PlugIn-Type" value="${plugInType}"/>
+			<attribute name="PlugIn-Name" value="${target}"/>
+			<attribute name="PlugIn-Libraries" value="${plugInLibraries}"/>
+			<attribute name="PlugIn-Imports" value="${plugInImports}"/>
+			<attribute name="PlugIn-Exports" value="${plugInExports}"/>
+			<attribute name="PlugIn-Properties" value="${plugInProperties}"/>
 		</manifest>
-    </target>
+	</target>
 
 	<!--
 	Target: AddManifestAddOns 
 	-->
 	<target name="AddManifestAddOns" if="doMfAddOns">
-        <isatask call="addManifestAddOns">
-        	<Arg value="${manifestFile}"/>	
+		<isatask call="addManifestAddOns">
+			<Arg value="${manifestFile}"/>	
 		</isatask>
 	</target>
-	
+
 	<!--
 	Target: Compile
 		-Xlint:unchecked
 	-->
-    <target name="Compile">
-        <javac debug="true" debuglevel="${debuglevel}" srcdir="${srcDir}" destdir="${binDir}" source="${srcVersion}" target="${binVersion}" includeantruntime="false">
-        	<classpath refid="buildClassPath"/>
-        	<compilerarg line="-nowarn -encoding Cp1252"/>
-        </javac>
-    </target>
+	<target name="Compile">
+		<javac debug="true" debuglevel="${debuglevel}" srcdir="${srcDir}" destdir="${binDir}" source="${srcVersion}" target="${binVersion}" includeantruntime="false">
+			<classpath refid="buildClassPath"/>
+			<compilerarg line="-nowarn -encoding Cp1252"/>
+		</javac>
+	</target>
 
 	<!--
 	Target: Package 
 	-->
-    <target name="Package" >
+	<target name="Package" >
 		<jar destfile="${jarFile}" baseDir="${binDir}" excludes="test/**, **/*.html" manifest="${manifestFile}">
 			<fileset file="${licenseFile}"/>
 		</jar>
-    </target>
-
+	</target>
+	
 	<!--	
 	Target: Deploy 
 	-->
-    <target name="Deploy" >
-    	<copy overwrite="True" file="${jarFile}" toDir="${deployDir}"/>
-    </target>
-
+	<target name="Deploy" >
+		<copy overwrite="True" file="${jarFile}" toDir="${deployDir}"/>
+	</target>
+	
 	<!--
 	Target: CompileTest
 		-Xlint:unchecked
 	-->
-    <target name="CompileTest" if="doUnitTest">
-        <javac debug="true" debuglevel="${debuglevel}" srcdir="${testSrcDir}" destdir="${binDir}" source="${srcVersion}" target="${binVersion}" includeantruntime="false">
-        	<classpath refid="buildClassPath" />
-        	<compilerarg line="-nowarn -encoding Cp1252"/>
-        </javac>
-    </target>
-
+	<target name="CompileTest" if="doUnitTest">
+		<javac debug="true" debuglevel="${debuglevel}" srcdir="${testSrcDir}" destdir="${binDir}" source="${srcVersion}" target="${binVersion}" includeantruntime="false">
+			<classpath refid="buildClassPath" />
+			<compilerarg line="-nowarn -encoding Cp1252"/>
+		</javac>
+	</target>
+	
 	<!--
 	Target: PackageTest 
 	-->
-    <target name="PackageTest" if="doPackageTest">
+	<target name="PackageTest" if="doPackageTest">
 		<jar destfile="${testJarFile}" baseDir="${binDir}" includes="test/**">
 		</jar>
-    </target>
-
+	</target>
+	
 	<!--
 	Target: RunTest 
 	-->
@@ -166,16 +166,16 @@ ISA Global Build Targets.
 			<test name="test.${target}TestSuite" todir="${jarDir}" outfile="TestReport-${target}${versionTag}"/>
 		</junit>
 	</target>
-
+	
 	<!--	
 	Target: JavaDoc 
 	-->
-    <target name="CreateJavaDoc" if="doJavaDoc">
+	<target name="CreateJavaDoc" if="doJavaDoc">
 		<delete includeemptydirs="true">
 			<fileset dir="${docDir}" includes="**/*"/>
 		</delete>
-
-  	  <javadoc sourcepath="${srcDir}"
+		
+		<javadoc sourcepath="${srcDir}"
 			defaultexcludes="yes"
 			destdir="${docDir}"
 			author="true"
@@ -183,41 +183,41 @@ ISA Global Build Targets.
 			use="true"
 			windowtitle="${title}"
 			overview="${srcDir}/overview.html"
-  	  		executable="${javaDocExe}"
-  	  	>
+			executable="${javaDocExe}"
+		>
 		<classpath refid="buildClassPath"/>
-  	   <bottom><![CDATA[<i>Copyright &#169; ${year} ${vendor}. All Rights Reserved.</i>]]></bottom>
-  	   <tag name="todo" scope="all" description="To do:"/>
-  	  </javadoc>
-    </target>
-
+		<bottom><![CDATA[<i>Copyright &#169; ${year} ${vendor}. All Rights Reserved.</i>]]></bottom>
+		<tag name="todo" scope="all" description="To do:"/>
+		</javadoc>
+	</target>
+	
 	<!--	
 	Target: Sign 
 	-->
 	<target name="Sign" >
 		<signjar jar="${jarFileSigned}"
-		    alias="isa.key.alias" keystore="${etcDir}/isa.keys"
-		    storepass="isa.password">
+			alias="isa.key.alias" keystore="${etcDir}/isa.keys"
+			storepass="">
 		</signjar>
 	</target>
-
+	
 	<!--	
 	Target: Sign 
 	-->
 	<target name="SignOrg" >
 		<signjar jar="${jarFile}"
-		    alias="isa.key.alias" keystore="${etcDir}/isa.keys"
-		    storepass="isa.password">
+			alias="isa.key.alias" keystore="${etcDir}/isa.keys"
+			storepass="">
 		</signjar>
 	</target>
-
+	
 	<!--
 	Target: Show usage
 	-->
 	<target name="ShowUsage">
-        <isatask call="showUsage">
+		<isatask call="showUsage">
 			<Arg value="${sysRoot}"/>	
-        </isatask>
+		</isatask>
 	</target>
-
+	
 </project>
