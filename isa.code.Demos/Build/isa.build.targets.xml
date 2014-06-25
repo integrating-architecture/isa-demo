@@ -72,8 +72,7 @@ ISA Global Build Targets.
 			<pathelement location="${binDir}"/>
 			<pathelement location="${testSystemLib}"/>	    	
 		</path>
-		<isatask call="setBuildPathElementsFromManifestInternal">
-		</isatask>
+		<isatask call="setBuildPathElementsFromManifestInternal"></isatask>
 	</target>
 
 	<!--
