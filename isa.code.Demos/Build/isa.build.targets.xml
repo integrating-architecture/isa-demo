@@ -24,8 +24,7 @@ ISA Global Build Targets.
 	<target name="DefineSystemContext">
     	<echo message="Start ----------------------------------------------------------------------------" /> 
 		<echo message="Build: ${basedir}"/>
-		<isatask call="defineSystemContextInternal">
-		</isatask>
+		<isatask call="defineSystemContextInternal"></isatask>
 	</target>
 
 	<!--
@@ -36,8 +35,7 @@ ISA Global Build Targets.
 	In this way the values get transfered from the source file to the manifest file.
 	-->
 	<target name="ReadManifest">
-        <isatask call="readManifestInternal">
-		</isatask>
+		<isatask call="readManifestInternal"></isatask>
 	</target>
 
 	<!--
