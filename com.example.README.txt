@@ -1,1 +1,1 @@
-The three com.example.* packeges are an example how to include Enterprise Apps into an own application.
+The three com.example.* packages are an example of how to include Enterprise Apps into an existing application.
