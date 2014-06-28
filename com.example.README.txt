@@ -1,6 +1,6 @@
 The three com.example.* packages are an example of how to include Enterprise Apps into an existing application.
 
 - com.example.ThirdPartyApplication is the existing one
-  - Modules: https://github.com/integrating-architecture/isa-demo/tree/master/com.example.ThirdPartyApplication/plugins
+  - Module dir: com.example.ThirdPartyApplication/plugins
   
 - com.example.ThirdPartyTestModule is the own module
