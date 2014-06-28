@@ -1,0 +1,4 @@
+PlugIn-Title: Example TestModule
+PlugIn-Name: com.example.ThirdPartyTestModule
+PlugIn-Version: 1.0.0
+PlugIn-Type: Module
