@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Ant build script 
+-->
+<project default="Run">
+
+	<!-- import global targets and properties -->
+	<import file="../Build/isa.build.targets.xml"/>
+
+</project>
