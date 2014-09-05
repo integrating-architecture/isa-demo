@@ -18,6 +18,8 @@ import isa.ServiceHandler;
  */
 public class ThirdPartyApplication {
 
+	public static final String LS = System.getProperty("line.separator");
+
 	//the isa service handler
 	protected ServiceHandler handler = null;
 	//your module services
@@ -54,10 +56,11 @@ public class ThirdPartyApplication {
 				"com.example.ThirdPartyTestModule[version=1.0.0]",
 				TestModuleIFace.class);		
 		lRet = localService.sayHello("World");
-		System.out.println("Local Service Call returned: "+lRet);
+		System.out.println(LS+"LOCAL Service Call returned: "+lRet+LS);
 		
 		//just one more step
 		//and this is a complete client-server application
+		System.out.println(LS+"CONNECTING to Server: "+LS);
 		handler.connect("user", "password",
 				"http://integrating-architecture.de", "8080",
 				"isa.esb.ServiceBrokerWebConnector[version=1.0.0.DEV-SNAPSHOT]");
@@ -67,7 +70,7 @@ public class ThirdPartyApplication {
 				"isa.TestService[version=1.0.0.DEV-SNAPSHOT]",
 				TestServiceIFace.class);		
 		lRet = remoteService.run("HELLO WORLD");
-		System.out.println("Remote Service Call returned: "+lRet);	
+		System.out.println(LS+"REMOTE Service Call returned: "+lRet+LS);	
 	}
 
 /**

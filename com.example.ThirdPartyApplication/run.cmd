@@ -1,0 +1,1 @@
+java -cp ./bin;./plugins/isa.CoreBootstrap-1.0.0.DEV-SNAPSHOT.jar com.example.ThirdPartyApplication
