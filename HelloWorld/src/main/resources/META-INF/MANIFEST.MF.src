@@ -5,4 +5,4 @@ PlugIn-Type:
 PlugIn-Libraries: 
 PlugIn-Imports:  
 PlugIn-Exports: 
-PlugIn-Properties: 
+PlugIn-Properties: [permitget=*]
