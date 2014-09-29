@@ -61,7 +61,7 @@ public class ThirdPartyApplication {
 		//just one more step
 		//and this is a complete client-server application
 		System.out.println(LS+"CONNECTING to Server: "+LS);
-		handler.connect("user", "password",
+		handler.connect("gast", "gast".toCharArray(),
 				"http://integrating-architecture.de", "8080",
 				"isa.esb.ServiceBrokerWebConnector[version=1.0.0.DEV-SNAPSHOT]");
 
