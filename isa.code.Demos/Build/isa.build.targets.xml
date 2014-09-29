@@ -208,13 +208,4 @@ ISA Global Build Targets.
 		</signjar>
 	</target>
 	
-	<!--
-	Target: Show usage
-	-->
-	<target name="ShowUsage">
-		<isatask call="showUsage">
-			<Arg value="${sysRoot}"/>	
-		</isatask>
-	</target>
-	
 </project>
