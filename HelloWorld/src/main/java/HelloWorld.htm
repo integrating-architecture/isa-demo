@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Hello World Web</title>
+	<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="http://integrating-architecture.de/isaweb/isasystem5/js/isa.web.Core.js"></script>
+
+	<style type="text/css">
+		html, body {
+			background-color: #e8e4dc;
+		}
+	</style>
+</head>
+<body>
+	<div style="margin-top: 100px;">
+		<h1 align="center">
+		<script type="text/javascript">
+			$ISA.getContent({'element':'hello-world',
+				'module':'HelloWorld',
+				'props':'[version=2.5.0]',
+				'data':'Visitor'});
+		</script>
+		</h1>
+	</div>
+</body>
+</html>
