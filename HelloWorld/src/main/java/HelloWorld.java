@@ -23,6 +23,8 @@ public class HelloWorld {
 		
 		if(pData.equals("page")){
 			lContent = readTextFrom(getClass().getResource("/HelloWorld.htm"));
+		}else if(pData.equals("elem")){
+			lContent = readTextFrom(getClass().getResource("/HelloWorldElem.htm"));
 		}else{
 			lContent = sayHello(pData);
 		}
