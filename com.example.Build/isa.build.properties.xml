@@ -33,13 +33,13 @@ ISA Global Build Properties.
 
 	<!-- locations -->
 	<property name="binDir" location="target/classes" />
-    <property name="srcDir" location="src/main/java" />
+	<property name="srcDir" location="src/main/java" />
 	<property name="testSrcDir" location="src/test/java" />
 	<property name="resDir" location="src/main/resources" />
-    <property name="webDir" location="src/main/webapp" />
+	<property name="webDir" location="src/main/webapp" />
 	<property name="webXml" location="${webDir}/WEB-INF/web.xml" />
-    <property name="jarDir" location="target/" />
-    <property name="docDir" location="target/javadoc" />
+	<property name="jarDir" location="target/" />
+	<property name="docDir" location="target/javadoc" />
 	<property name="pluginDirName" value="plugins" />
 		
 	<property name="pluginDir" location="${sysRoot}/${pluginDirName}" />
@@ -66,8 +66,8 @@ ISA Global Build Properties.
 	<!-- compiler flags -->
 	<property name="debuglevel" value="source,lines,vars"/>
 	<property name="binVersion" value="1.6"/>
-    <property name="srcVersion" value="1.6"/>
-    <property name="warnings" value="nowarn"/>
+	<property name="srcVersion" value="1.6"/>
+	<property name="warnings" value="nowarn"/>
 	
 	<!-- isa ant extension task -->
 	<taskdef name="isatask" classname="isa.AntExtension">
