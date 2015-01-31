@@ -1,1 +1,1 @@
-java -cp ./bin;./plugins/isa.CoreBootstrap-1.0.0.DEV-SNAPSHOT.jar -Disa.broker.version=-3.xJEE com.example.ThirdPartyApplication
+java -cp ./bin;./plugins/isa.CoreBootstrap-1.0.0.DEV-SNAPSHOT.jar com.example.ThirdPartyApplication
