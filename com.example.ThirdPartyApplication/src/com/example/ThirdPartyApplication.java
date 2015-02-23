@@ -53,7 +53,7 @@ public class ThirdPartyApplication {
 		
 		//3. get a service from a module and call it
 		localService = (TestModuleIFace)handler.getService(
-				"com.example.ThirdPartyTestModule[version=1.0.0]",
+				"com.example.ThirdPartyTestModule[version=1.0.*]",
 				TestModuleIFace.class);		
 		lRet = localService.sayHello("World");
 		System.out.println(LS+"LOCAL Service Call returned: "+lRet+LS);
@@ -63,11 +63,11 @@ public class ThirdPartyApplication {
 		System.out.println(LS+"CONNECTING to Server: "+LS);
 		handler.connect("gast", "gast".toCharArray(),
 				"http://integrating-architecture.de", "8080",
-				"isa.esb.ServiceBrokerWebConnector[version=1.0.0.DEV-SNAPSHOT]");
+				"isa.esb.ServiceBrokerWebConnector[version=1.0.*]");
 
 		//get a remote service from a module and call it
 		remoteService = (TestServiceIFace)handler.getService(
-				"isa.TestService[version=1.0.0.DEV-SNAPSHOT]",
+				"isa.TestService[version=1.0.*]",
 				TestServiceIFace.class);		
 		lRet = remoteService.run("HELLO WORLD");
 		System.out.println(LS+"REMOTE Service Call returned: "+lRet+LS);	
