@@ -9,15 +9,15 @@ ISA Global Build Properties.
 	     
 	<property name="doUnitTest" value="true" />
 	<property name="doPackageTest" value="true" />
-	<property name="doMfAddOns" value="true" />
 	<property name="doBackup" value="true" />
 	<property name="doJavaDoc" value="true" />
 	-->
 
-	<!-- Root Location -->
+	<!-- Root Properties -->
 	<property name="root" location="../" />
-	<property name="sysName" value="com.example.ThirdPartyApplication" />
-	<property name="appSrvDeployDir" location="" />
+	<property name="sysName" value="isasystem5" />
+	<property name="appSrvDeployDir" location="/isa.projects/as/jboss-as-7.1.1.Final/standalone/deployments" />
+	<property name="javaDocExe" location="/isa.projects/java/jdk1.7.0_13/bin/javadoc.exe" />
 
 	<property name="sysRoot" location="${root}/${sysName}" />
 	<property name="licenseFile" location="${sysRoot}/License.txt" />
@@ -25,21 +25,19 @@ ISA Global Build Properties.
 	<!-- misc -->
 	<property name="vendor" value="Integrating Architecture"/>
 	<property name="systemLineVersion" value="5.0"/>
-	<property name="plugInLibraries" value="" />
-	<property name="plugInImports" value="" />
 
 	<!-- VM Options -->
 	<property name="vmOptions" value="isa.test=file:${sysRoot}" />
 
 	<!-- locations -->
 	<property name="binDir" location="target/classes" />
-	<property name="srcDir" location="src/main/java" />
+    <property name="srcDir" location="src/main/java" />
 	<property name="testSrcDir" location="src/test/java" />
 	<property name="resDir" location="src/main/resources" />
-	<property name="webDir" location="src/main/webapp" />
+    <property name="webDir" location="src/main/webapp" />
 	<property name="webXml" location="${webDir}/WEB-INF/web.xml" />
-	<property name="jarDir" location="target/" />
-	<property name="docDir" location="target/javadoc" />
+    <property name="jarDir" location="target/" />
+    <property name="docDir" location="target/javadoc" />
 	<property name="pluginDirName" value="plugins" />
 		
 	<property name="pluginDir" location="${sysRoot}/${pluginDirName}" />
@@ -66,8 +64,8 @@ ISA Global Build Properties.
 	<!-- compiler flags -->
 	<property name="debuglevel" value="source,lines,vars"/>
 	<property name="binVersion" value="1.6"/>
-	<property name="srcVersion" value="1.6"/>
-	<property name="warnings" value="nowarn"/>
+    <property name="srcVersion" value="1.6"/>
+    <property name="warnings" value="nowarn"/>
 	
 	<!-- isa ant extension task -->
 	<taskdef name="isatask" classname="isa.AntExtension">
